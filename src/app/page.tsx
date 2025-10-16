@@ -40,7 +40,6 @@ export default function Home() {
           <HeroSplit
             title="Welcome to Pizzeria"
             description="Discover our wide selection of delicious pizzas made with fresh ingredients."
-            imageSrc="https://images.pexels.com/photos/2909822/pexels-photo-2909822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
             buttons={[{ text: "Order Now", href: "product" }] }
           />
         </div>
@@ -55,7 +54,6 @@ export default function Home() {
               "Join us for a slice of tradition."
             ]}
             buttons={[{ text: "Learn More", href: "about" }]}
-            imageSrc="https://images.pexels.com/photos/19130050/pexels-photo-19130050.png?auto=compress&cs=tinysrgb&h=650&w=940"
           />
         </div>
       </div>
@@ -78,7 +76,6 @@ export default function Home() {
             tag="Contact Us"
             title="Visit Our Pizzeria"
             description="Find out how to visit us or get in touch for your pizza cravings."
-            imageSrc="https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
             mediaPosition="right"
           />
         </div>
