@@ -74,23 +74,20 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Best Pizzeria in Town",
-  description: "Enjoy delicious authentic pizzas at Pizzeria. Fresh ingredients, cozy atmosphere.",
+  title: "Pizzeria - Delight in Every Slice",
+  description: "Delicious pizzas made with fresh ingredients, crafted for your taste.",
   openGraph: {
-    title: "Best Pizzeria in Town",
-    description: "Enjoy delicious authentic pizzas at Pizzeria. Fresh ingredients, cozy atmosphere.",
-    url: "",
+    title: "Pizzeria - Delight in Every Slice",
+    description: "Delicious pizzas made with fresh ingredients, crafted for your taste.",
+    url: "https://example.com",
     siteName: "Pizzeria",
-    images: [{
-      url: "https://images.pexels.com/photos/2909822/pexels-photo-2909822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-      alt: "Delicious pizza",
-    }],
+    images: [{ url: "https://images.pexels.com/photos/2909822/pexels-photo-2909822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Pizzeria in Town",
-    description: "Enjoy delicious authentic pizzas at Pizzeria. Fresh ingredients, cozy atmosphere.",
+    title: "Pizzeria - Delight in Every Slice",
+    description: "Delicious pizzas made with fresh ingredients, crafted for your taste.",
     images: ["https://images.pexels.com/photos/2909822/pexels-photo-2909822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"],
   },
   robots: {
@@ -101,14 +98,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
       <body
-        className={`${interTight.variable} ${playfairDisplay.variable} ${roboto.variable} ${openSans.variable} ${lato.variable} ${montserrat.variable} ${poppins.variable} ${raleway.variable} ${ubuntu.variable} ${nunito.variable} antialiased`}
-      >
+        className={`${interTight.variable} ${playfairDisplay.variable} ${roboto.variable} ${openSans.variable} ${lato.variable} ${montserrat.variable} ${poppins.variable} ${raleway.variable} ${ubuntu.variable} ${nunito.variable} antialiased`}>
         {children}
       
         <script

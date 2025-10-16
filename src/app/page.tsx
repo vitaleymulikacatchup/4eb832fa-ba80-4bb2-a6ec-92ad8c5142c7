@@ -1,20 +1,19 @@
 "use client";
-import { ThemeProvider } from '@/providers/ThemeProvider';
-import NavbarStyleApple from '@/components/navbar/NavbarStyleApple/NavbarStyleApple';
-import HeroBillboard from '@/components/sections/hero/HeroBillboard';
-import SplitAbout from '@/components/sections/about/SplitAbout';
-import ProductCardOne from '@/components/sections/product/ProductCardOne';
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import NavbarLayoutFloatingInline from '@/components/navbar/NavbarLayoutFloatingInline';
+import HeroSplit from '@/components/sections/hero/HeroSplit';
+import TextSplitAbout from '@/components/sections/about/TextSplitAbout';
+import ProductCardTwo from '@/components/sections/product/ProductCardTwo';
 import ContactSplit from '@/components/sections/contact/ContactSplit';
-import FooterLogoEmphasis from '@/components/sections/footer/FooterLogoEmphasis';
-import { CheckCircle } from 'lucide-react';
+import FooterBase from '@/components/sections/footer/FooterBase';
 
-const assetMap = [
-  { id: "heroImage", url: "https://images.pexels.com/photos/2909822/pexels-photo-2909822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Colorful pink crust pizza with vegetables and herbs on a wooden platter. Perfect for food lovers." },
-  { id: "aboutImage", url: "https://images.pexels.com/photos/5216394/pexels-photo-5216394.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Warm and inviting Italian cafe with a variety of pizzas and drinks displayed on a counter." },
-  { id: "featureImage1", url: "https://images.pexels.com/photos/1435900/pexels-photo-1435900.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Close-up of a homemade pizza topped with arugula, mozzarella, and tomatoes." },
-  { id: "featureImage2", url: "https://images.pexels.com/photos/276147/pexels-photo-276147.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "A brightly illuminated menu board showcasing various food and drink options with prices in a lively indoor setting." },
-  { id: "featureImage3", url: "https://images.pexels.com/photos/6972784/pexels-photo-6972784.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "A heartwarming moment between grandfather and grandson laughing and playing on a cozy sofa indoors." },
-  { id: "contactImage", url: "https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Confident businesswoman using her tablet and phone, smiling outdoors in sunlight." }
+const assetMap: { id: string; url: string; alt?: string }[] = [
+  { "id": "hero-image", "url": "https://images.pexels.com/photos/2909822/pexels-photo-2909822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", "alt": "Colorful pink crust pizza with vegetables and herbs on a wooden platter. Perfect for food lovers." },
+  { "id": "about-image", "url": "https://images.pexels.com/photos/19130050/pexels-photo-19130050.png?auto=compress&cs=tinysrgb&h=650&w=940", "alt": "Tantalizing selection of gourmet pizzas with fresh toppings in Mexico City's vibrant dining scene." },
+  { "id": "product-1", "url": "https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", "alt": "A mouthwatering slice of pepperoni pizza with cheese and spices, ideal for any meal." },
+  { "id": "product-2", "url": "https://images.pexels.com/photos/7315010/pexels-photo-7315010.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", "alt": "Top view of friends sharing a large pizza at home, capturing a casual dining moment." },
+  { "id": "product-3", "url": "https://images.pexels.com/photos/6605245/pexels-photo-6605245.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", "alt": "Overhead view of friends sharing pizza and beer at a table indoors in a casual setting." },
+  { "id": "contact-image", "url": "https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", "alt": "A young couple having milkshakes and pizza at a cozy cafe. Relaxed and joyful atmosphere." }
 ];
 
 export default function Home() {
@@ -25,90 +24,77 @@ export default function Home() {
       borderRadius="rounded"
     >
       <div id="nav" data-section="nav">
-        <NavbarStyleApple
+        <NavbarLayoutFloatingInline
           navItems={[
             { name: "Home", id: "hero" },
-            { name: "About Us", id: "about" },
+            { name: "About", id: "about" },
             { name: "Menu", id: "product" },
             { name: "Contact", id: "contact" },
           ]}
           brandName="Pizzeria"
         />
       </div>
-      <div id="hero" data-section="hero" className="scroll-mt-24">
+
+      <div id="hero" data-section="hero" className="scroll-mt-24 bg-red-100 text-red-900">
         <div className="mx-auto px-4 md:px-6">
-          <HeroBillboard
-            title="Experience the Best Pizza in Town"
-            description="Join us for a slice of heaven with the freshest ingredients and authentic flavors."
-            imageSrc={assetMap.find(a => a.id === "heroImage")?.url}
-            buttons={[
-              { text: "Explore Menu", href: "product" },
-              { text: "Contact Us", href: "contact" },
-            ]}
-            className="bg-yellow-100"
-            titleClassName="text-yellow-900"
-            descriptionClassName="text-yellow-900"
+          <HeroSplit
+            title="Welcome to Pizzeria"
+            description="Discover our wide selection of delicious pizzas made with fresh ingredients."
+            imageSrc="https://images.pexels.com/photos/2909822/pexels-photo-2909822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            buttons={[{ text: "Order Now", href: "product" }] }
           />
         </div>
       </div>
-      <div id="about" data-section="about" className="scroll-mt-24">
+
+      <div id="about" data-section="about" className="scroll-mt-24 bg-red-100 text-red-900">
         <div className="mx-auto px-4 md:px-6">
-          <SplitAbout
-            bulletPoints={[
-              { title: "Traditional Recipes", description: "Passed down through generations.", icon: CheckCircle },
-              { title: "Cozy Atmosphere", description: "Feel at home in our warm setting.", icon: CheckCircle },
+          <TextSplitAbout
+            title="Our Story"
+            description={[
+              "At Pizzeria, we prioritize authentic flavors and quality ingredients.",
+              "Join us for a slice of tradition."
             ]}
-            imageSrc={assetMap.find(a => a.id === "aboutImage")?.url}
-            className="bg-yellow-100"
-            bulletTitleClassName="text-yellow-900"
-            bulletDescriptionClassName="text-yellow-900"
+            buttons={[{ text: "Learn More", href: "about" }]}
+            imageSrc="https://images.pexels.com/photos/19130050/pexels-photo-19130050.png?auto=compress&cs=tinysrgb&h=650&w=940"
           />
         </div>
       </div>
-      <div id="product" data-section="product" className="scroll-mt-24">
+
+      <div id="product" data-section="product" className="scroll-mt-24 bg-red-100 text-red-900">
         <div className="mx-auto px-4 md:px-6">
-          <ProductCardOne
+          <ProductCardTwo
             products={[
-              { id: "1", name: "Margherita", price: "$12.99", imageSrc: assetMap.find(a => a.id === "featureImage1")?.url },
-              { id: "2", name: "Pepperoni", price: "$14.99", imageSrc: assetMap.find(a => a.id === "featureImage2")?.url },
-              { id: "3", name: "Vegetarian", price: "$11.99", imageSrc: assetMap.find(a => a.id === "featureImage3")?.url },
+              { id: "1", brand: "Pizzeria", name: "Pepperoni Pizza", price: "$12.99", rating: 5, reviewCount: "100", imageSrc: "https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
+              { id: "2", brand: "Pizzeria", name: "Veggie Pizza", price: "$11.99", rating: 4.5, reviewCount: "80", imageSrc: "https://images.pexels.com/photos/7315010/pexels-photo-7315010.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
+              { id: "3", brand: "Pizzeria", name: "Margherita Pizza", price: "$10.99", rating: 4.8, reviewCount: "60", imageSrc: "https://images.pexels.com/photos/6605245/pexels-photo-6605245.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" }
             ]}
-            title="Our Menu"
-            className="bg-yellow-100"
-            cardNameClassName="text-yellow-900"
-            cardPriceClassName="text-yellow-900"
           />
         </div>
       </div>
-      <div id="contact" data-section="contact" className="scroll-mt-24">
+
+      <div id="contact" data-section="contact" className="scroll-mt-24 bg-red-100 text-red-900">
         <div className="mx-auto px-4 md:px-6">
           <ContactSplit
             tag="Contact Us"
-            title="Get in Touch"
-            description="Reserve a table or order your favorite pizza for delivery."
-            imageSrc={assetMap.find(a => a.id === "contactImage")?.url}
-            className="bg-yellow-100"
-            tagClassName="text-yellow-900"
-            titleClassName="text-yellow-900"
-            descriptionClassName="text-yellow-900"
+            title="Visit Our Pizzeria"
+            description="Find out how to visit us or get in touch for your pizza cravings."
+            imageSrc="https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            mediaPosition="right"
           />
         </div>
       </div>
-      <div id="footer" data-section="footer" className="scroll-mt-24">
+
+      <div id="footer" data-section="footer" className="scroll-mt-24 bg-red-100 text-red-900">
         <div className="mx-auto px-4 md:px-6">
-          <FooterLogoEmphasis
+          <FooterBase
             columns={[
-              { items: [
-                  { label: "Home", href: "hero" },
-                  { label: "About Us", href: "about" },
-                  { label: "Menu", href: "product" },
-                  { label: "Contact Us", href: "contact" }
-                ]}
+              { title: "Explore", items: [ { label: "Home", href: "hero" }, { label: "About Us", href: "about" } ] },
+              { title: "Menu", items: [ { label: "Pizza Selection", href: "product" }, { label: "Specials", href: "product" } ] }
             ]}
-            logoText="Pizzeria"
-            className="bg-yellow-100"
-            logoClassName="text-yellow-900"
-            itemClassName="text-yellow-900"
+            logoSrc="/brand/logowhite.svg"
+            logoWidth={120}
+            logoHeight={40}
+            copyrightText="© 2025 Pizzeria"
           />
         </div>
       </div>
